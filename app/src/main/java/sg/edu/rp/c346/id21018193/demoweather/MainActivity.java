@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
     ListView lvWeather;
     AsyncHttpClient client;
-    ArrayList<Weather> alWeather = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

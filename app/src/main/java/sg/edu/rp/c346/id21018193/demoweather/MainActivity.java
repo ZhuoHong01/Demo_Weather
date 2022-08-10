@@ -60,11 +60,9 @@ public class MainActivity extends AppCompatActivity {
                         forecast = jsonObjForecast.getString("forecast");
                         Weather weather = new Weather(area, forecast);
                         alWeather.add(weather);
-//                        aaWeather = new ArrayAdapter<>(this,
-//                                android.R.layout.simple_list_item_1, alWeather);
                     }
                 }
-                catch(JSONException e){
+                catch(JSONException ignored){
 
                 }
 

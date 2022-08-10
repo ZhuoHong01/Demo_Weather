@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     ListView lvWeather;
     AsyncHttpClient client;
+    ArrayAdapter<Weather> aaWeather;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 //POINT X – Code to display List View
-
+                lvWeather.setAdapter(aaWeather);
 
             }//end onSuccess
         });

@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     ListView lvWeather;
     AsyncHttpClient client;
     ArrayAdapter<Weather> aaWeather;
+    ArrayList<Weather> alWeather = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         lvWeather = findViewById(R.id.listviewWeather);
+        aaWeather = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, alWeather);
         client = new AsyncHttpClient();
     }
 
@@ -37,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        ArrayList<Weather> alWeather = new ArrayList<Weather>();
+        ArrayList<Weather> alWeather = new ArrayList<>();
+        ArrayAdapter<Weather> aaWeather;
 
         client.get("https://api.data.gov.sg/v1/environment/2-hour-weather-forecast", new JsonHttpResponseHandler() {
 
@@ -58,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
                         forecast = jsonObjForecast.getString("forecast");
                         Weather weather = new Weather(area, forecast);
                         alWeather.add(weather);
+                        aaWeather = new ArrayAdapter<>(this,
+                                android.R.layout.simple_list_item_1, alWeather);
                     }
                 }
                 catch(JSONException e){

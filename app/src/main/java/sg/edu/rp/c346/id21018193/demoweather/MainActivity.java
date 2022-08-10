@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
                         forecast = jsonObjForecast.getString("forecast");
                         Weather weather = new Weather(area, forecast);
                         alWeather.add(weather);
-                        aaWeather = new ArrayAdapter<>(this,
-                                android.R.layout.simple_list_item_1, alWeather);
+//                        aaWeather = new ArrayAdapter<>(this,
+//                                android.R.layout.simple_list_item_1, alWeather);
                     }
                 }
                 catch(JSONException e){
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 //POINT X – Code to display List View
-                lvWeather.setAdapter(aaWeather);
+//                lvWeather.setAdapter(aaWeather);
 
             }//end onSuccess
         });

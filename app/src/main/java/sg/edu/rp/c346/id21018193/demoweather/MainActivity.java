@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Weather> alWeather = new ArrayList<>();
         ArrayAdapter<Weather> aaWeather = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, alWeather);
+        lvWeather.setAdapter(aaWeather);
 
         client.get("https://api.data.gov.sg/v1/environment/2-hour-weather-forecast", new JsonHttpResponseHandler() {
 
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 //POINT X – Code to display List View
-                 lvWeather.setAdapter(aaWeather);
+
                 aaWeather.notifyDataSetChanged();
         //        lvWeather.performClick();
 
